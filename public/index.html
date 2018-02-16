@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<link rel="stylesheet" href="./stylesheets/normalize.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="./stylesheets/style.css">
+
+	<title>Hash | Omar Salinas</title>
+</head>
+<body>
+	<div id="app">
+		<h1>Hash</h1>
+		<h2>A bcrypt example by: <small>Omar Salinas</small></h2>
+
+		<div class="field">
+			<label for="data">Message data</label>
+			<textarea type="text" name="data" v-model="data" placeholder="Your message" rows="2"></textarea>
+		</div>
+
+		<div class="field">
+			<label for="data">Hash data</label>
+			<textarea type="text" name="hashData" v-model="hashData" placeholder="This will be generated, or you can input your own hash data" rows="2"></textarea>
+		</div>
+
+		<button @click="hash" :disabled="!processedData">Hash</button>
+		<button @click="compare" :disabled="!processedData || !hashData">Compare</button>
+
+		<div v-if="output" class="output">
+			<h3>{{ outputTag }}</h3>
+			<p>{{ output }}</p>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="./javascripts/app.js"></script>
+</body>
+</html>
