@@ -13,29 +13,28 @@
 </head>
 <body>
 	<div id="app">
-		<h1>Hash</h1>
-		<h2>A bcrypt example by: <small>Omar Salinas</small></h2>
+		<header>
+			<h1>HashDB</h1>
+			<h2>A bcrypt &amp; SQLite example by:<br><small>Omar Salinas</small></h2>
+			<p>Please sign up to create a new user or sign in to view your password</p>
 
-		<div class="field">
-			<label for="data">Message data</label>
-			<textarea type="text" name="data" v-model="data" placeholder="Your message" rows="2"></textarea>
-		</div>
+			<router-link to="/signup" class="btn solid">Sign Up</router-link>
+			<router-link to="/signin" class="btn">Sign In</router-link>
+		</header>
 
-		<div class="field">
-			<label for="data">Hash data</label>
-			<textarea type="text" name="hashData" v-model="hashData" placeholder="This will be generated, or you can input your own hash data" rows="2"></textarea>
-		</div>
-
-		<button @click="hash" :disabled="!processedData">Hash</button>
-		<button @click="compare" :disabled="!processedData || !hashData">Compare</button>
-
-		<div v-if="output" class="output">
-			<h3>{{ outputTag }}</h3>
-			<p>{{ output }}</p>
-		</div>
+		<router-view></router-view>
 	</div>
 
-	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+	<script>
+		const api = 'https://hash-enc.herokuapp.com/api/';
+		// const api = 'http://localhost:3000/api/';
+	</script>
+
+	<script src="./javascripts/signUp.js"></script>
+	<script src="./javascripts/signIn.js"></script>
 	<script src="./javascripts/app.js"></script>
 </body>
 </html>
