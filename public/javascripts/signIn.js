@@ -31,8 +31,8 @@ const SignIn = {
 	`,
 	data() {
 		return {
-			username: 'DummyDude',
-			password: 'password',
+			username: '',
+			password: '',
 			error: '',
 			success: '',
 			hashed: '',
